@@ -84,15 +84,15 @@ Yes. Libsass version 3.2.0 or greater fully supports csstyle.
 In Sass you can append a `&` to a selector or pseudo-selector to have it applied to the parent context. So for example to have a `part` react when the `component` gets hovered:
 
 ```scss
-@include component(capacitor){
+@include component(capacitor) {
   background: red;
   
-  @include part(flux){
+  @include part(flux) {
     background: orange;
   }
   
   &:hover & {
-    @include part(flux){
+    @include part(flux) {
       background: blue;
     }
   }
