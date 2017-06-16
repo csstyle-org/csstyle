@@ -19,7 +19,7 @@ module.exports = function (opts){
   opts.rootId = opts.rootId || 'csstyle';
   
   return function csstyle(css){
-    css.eachRule(function(node){
+    css.walkRules(function(node){
       var output = '';
       var selectors = node.selector.split(' ').map(getAbstraction);
       selectors.forEach(function(selector, index){
