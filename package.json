@@ -14,7 +14,7 @@
     "grunt": "~0.4.5",
     "grunt-release": "~0.12.0",
     "jasmine-node": "^1.14.5",
-    "postcss": "^4.0.4",
+    "postcss": "^6.0.2",
     "postcss-nested": "^0.2.1",
     "postcss-simple-vars": "^0.2.3",
     "shelljs": "~0.3.0",
