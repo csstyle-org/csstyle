@@ -62,24 +62,24 @@ $csstyle-root-id: 'csstyle' !default;
     $component: str-slice(#{&}, 0, $optionIndex);
 
     // part is nested in an option
+    $selector: '';
+
     @if $optionIndex > 0 {
       // part is also nested in another part
       @if ($partIndex > 0){
-        #{_build_selector("&" + $csstyle-part-symbol, $names)}{
-          @content;
-        }
+        $selector: #{_build_selector("&" + $csstyle-part-symbol, $names)};
       }
       @else{
-        #{_build_selector("& " + $component + $csstyle-part-symbol, $names)}{
-          @content;
-        }
+        $selector: #{_build_selector("& " + $component + $csstyle-part-symbol, $names)};
       }
     }
     @else {
-      #{_build_selector("&" + $csstyle-part-symbol, $names)}{
-        @content;
-      }
+      $selector: #{_build_selector("&" + $csstyle-part-symbol, $names)};
     }
+ 
+    #{$selector} {
+      @content;
+    }   
 }
 
 // tweaks
