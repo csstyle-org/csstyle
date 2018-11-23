@@ -3,8 +3,6 @@
 
 Clean, simple, for styling the web.
 
-Check out the docs and examples on [csstyle.io](http://csstyle.io)
-
 You can use csstyle with either [Sass](http://sass-lang.com/) or [postcss](https://github.com/postcss/postcss).
 
 ## Getting Started
