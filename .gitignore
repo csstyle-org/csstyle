@@ -1,7 +1,3 @@
-*.css
-*.css.map
-!site.css
-.sass-cache
-node_modules
-.divshot-cache
-site/divshot.json
+node_modules/
+npm-debug.log
+yarn-error.log

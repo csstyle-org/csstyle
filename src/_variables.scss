@@ -1,0 +1,22 @@
+$_csstyle-default-component-symbol: '';
+$_csstyle-default-option-symbol: '--';
+$_csstyle-default-part-symbol: '.';
+$_csstyle-default-tweak-symbol: '+';
+$_csstyle-default-location-symbol: '@';
+$_csstyle-default-root-id: 'app';
+
+$csstyle-component-symbol: $_csstyle-default-component-symbol !default;
+$csstyle-option-symbol: $_csstyle-default-option-symbol !default;
+$csstyle-part-symbol: $_csstyle-default-part-symbol !default;
+$csstyle-tweak-symbol: $_csstyle-default-tweak-symbol !default;
+$csstyle-location-symbol: $_csstyle-default-location-symbol !default;
+$csstyle-root-id: $_csstyle-default-root-id !default;
+
+$_csstyle-component-symbol: $csstyle-component-symbol;
+$_csstyle-option-symbol: $csstyle-option-symbol;
+$_csstyle-part-symbol: $csstyle-part-symbol;
+$_csstyle-tweak-symbol: $csstyle-tweak-symbol;
+$_csstyle-location-symbol: $csstyle-location-symbol;
+$_csstyle-root-id: $csstyle-root-id;
+
+$_csstyle_rules: ();

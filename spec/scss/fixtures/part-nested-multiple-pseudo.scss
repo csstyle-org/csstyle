@@ -1,9 +1,0 @@
-@import '../../../csstyle';
-
-@include component(frame) {
-  &:hover &, &:focus & {
-    @include part(img) {
-      color: maroon;
-    }
-  }
-}

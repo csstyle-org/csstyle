@@ -1,0 +1,34 @@
+@function component($name) {
+    @return '.' + escape-symbols($csstyle-component-symbol + $name);
+}
+
+@function _csstyle_start_component($components) {
+    $parent: '';
+    
+    @if (length($_csstyle_rules) > 0) {
+        $compiled: _csstyle_compile();
+        
+        @if (& != null) and (selector-parse($compiled) != selector-parse(&)) {
+            $parent: &;
+        }
+    } @else if (& != null) {
+        $parent: &;
+    }
+    
+    $_csstyle_rules: append($_csstyle_rules, (
+        'parent': $parent,
+        'location': (),
+        'tweak': (),
+        'component': $components,
+        'parts': (),
+        'options': (),
+    )) !global;
+    
+    @return $_csstyle_rules;
+}
+
+@function _csstyle_stop_component() {
+    $_csstyle_rules: remove-nth($_csstyle_rules, length($_csstyle_rules)) !global;
+    
+    @return $_csstyle_rules;
+}

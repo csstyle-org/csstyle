@@ -1,49 +1,31 @@
 {
   "name": "csstyle",
-  "version": "1.6.0",
+  "version": "2.0.0-dev",
   "description": "clean, simple styling for styling the web.",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "lodash": "^3.2.0"
-  },
-  "devDependencies": {
-    "fs-extra": "^0.16.3",
-    "glob": "^4.3.5",
-    "grunt": "~0.4.5",
-    "grunt-release": "~0.12.0",
-    "jasmine-node": "^1.14.5",
-    "postcss": "^6.0.2",
-    "postcss-nested": "^2.0.2",
-    "postcss-simple-vars": "^4.0.0",
-    "shelljs": "~0.3.0",
-    "specificity": "~0.1.4"
-  },
-  "main": "csstyle.js",
   "scripts": {
-    "test": "jasmine-node spec",
-    "sitecss": "sass -r sass-globbing ./site/site.scss > ./site/site.css"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/csstyle/csstyle.git"
+    "url": "git://github.com/csstyle-org/csstyle.git"
   },
   "keywords": [
     "css",
+    "web",
     "sass",
     "scss",
-    "web",
-    "components",
-    "styling",
-    "mixins",
     "method",
-    "approach"
+    "mixins",
+    "modular",
+    "styling",
+    "approach",
+    "components",
+    "abstraction"
   ],
-  "author": "Dave Geddes",
+  "author": "Frankie Wittevrongel <frankie@cupoftea.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/csstyle/csstyle/issues"
+    "url": "https://github.com/csstyle-org/csstyle/issues"
   },
-  "homepage": "http://www.csstyle.io"
+  "homepage": "https://csstyle.io"
 }

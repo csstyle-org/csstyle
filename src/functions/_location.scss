@@ -1,0 +1,47 @@
+@function location($name) {
+    @return '.' + escape-symbols($csstyle-location-symbol + $name);
+}
+
+@function _csstyle_start_location($locations) {
+    $added: false;
+    $rules: ();
+    $new: (
+        'parent': '',
+        'location': $locations,
+        'tweak': (),
+        'component': (),
+        'parts': (),
+        'options': (),
+    );
+
+    @each $rule in $_csstyle_rules {
+        @if length(map-get($rule, 'location')) == 0 and $added == false {
+            $rules: append($rules, $new);
+            $added: true;
+        }
+
+        $rules: append($rules, $rule);
+    }
+
+    @if not $added {
+        $rules: append($rules, $new);
+    }
+
+    $_csstyle_rules: $rules !global;
+
+    @return $_csstyle_rules;
+}
+
+@function _csstyle_stop_location($locations) {
+    $rules: ();
+
+    @each $rule in $_csstyle_rules {
+        @if map-get($rule, 'location') != $locations {
+            $rules: append($rules, $rule);
+        }
+    }
+
+    $_csstyle_rules: $rules !global;
+
+    @return $_csstyle_rules;
+}
