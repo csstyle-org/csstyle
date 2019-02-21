@@ -1,4 +1,4 @@
-[![csstyle](https://csstyle.io/assets/img/logo.png)](https://csstyle.io)
+[<img src="https://csstyle.io/assets/img/logo.png" alt="csstyle" width="256" style="max-width:100%;">](https://csstyle.io)
 
 **Clean**, **simple**, for styling the **web**.
 
