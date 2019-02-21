@@ -1,0 +1,27 @@
+/**
+ * csstyle v2.0.0 for sass (https://csstyle.io)
+ * Copyright (c) 2019 Frankie Wittevrongel
+ * Licensed under MIT (https://github.com/csstyle-org/csstyle/blob/master/LICENSE)
+ */
+.c1 {
+  left: 1;
+}
+
+.c1 {
+  top: 0;
+}
+
+.c3\.p1, .c3, .c2 {
+  left: 1;
+}
+
+.c2 {
+  top: 0;
+}
+
+.c3 {
+  top: 0;
+}
+.c3\.p1 {
+  top: 0;
+}
