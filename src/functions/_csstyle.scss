@@ -42,20 +42,16 @@ $_csstyle_important: false;
     $selector: selector-parse($selector);
     $compiled: ();
     $modifyables: ();
-    $type: 'component';
-
-    @if length($components) > 0 {
-        $modifyables: $components;
-    }
-
-    @if length($tweaks) > 0 {
-        $modifyables: $tweaks;
-        $type: 'tweak';
-    }
+    $type: 'location';
 
     @if length($locations) > 0 {
         $modifyables: $locations;
-        $type: 'location';
+    } @else if length($tweaks) > 0 {
+        $modifyables: $tweaks;
+        $type: 'tweak';
+    } @else if length($components) > 0 {
+        $modifyables: $components;
+        $type: 'component';
     }
 
     @each $component in $modifyables {
@@ -65,19 +61,15 @@ $_csstyle_important: false;
 
             @if $type == 'component' {
                 $componentStartIndex: str-index($identifier,  component($component));
-            }
-
-            @if $type == 'tweak' {
+            } @else if $type == 'tweak' {
                 $componentStartIndex: str-index($identifier, tweak($component));
-            }
-
-            @if $type == 'location' {
+            } @else if $type == 'location' {
                 $componentStartIndex: str-index($identifier, location($component));
             }
 
             @if $componentStartIndex != null {
                 $component: str-slice($identifier, $componentStartIndex);
-                $dotIndex: str-index(str-slice($component, 2), '.');
+                $dotIndex: str-index(str-slice(str-replace($component, '\\.', 'dd'), 2), '.');
                 $spaceIndex: str-index($component, ' ');
                 $componentEndIndex: str-length($component);
 
@@ -107,7 +99,7 @@ $_csstyle_important: false;
     $parts: ();
 
     @each $alternatives in $part_rules {
-            @if length($parts) > 0 {
+        @if length($parts) > 0 {
             $new_parts: ();
 
             @each $part in $parts {
@@ -299,7 +291,7 @@ $_csstyle_important: false;
 
     @if str-index($selector-str, '#' + $csstyle-root-id) != null {
         @if $_csstyle_has_html_tag or $_csstyle_important {
-            @return selector-parse(html + $selector-str);
+            @return selector-replace($selector, '#' + $csstyle-root-id, html + '#' + $csstyle-root-id);
         }
 
         @return selector-parse($selector);
@@ -307,7 +299,7 @@ $_csstyle_important: false;
 
     @if str-index($selector-str, html) != null {
         @if $_csstyle_has_root_id or $_csstyle_important {
-            @return selector-parse(str-insert($selector-str, '#' + $csstyle-root-id, str-index($selector-str, html) + str-length(html)));
+            @return selector-replace($selector, html, html + '#' + $csstyle-root-id);
         }
 
         @return selector-parse($selector);
@@ -317,11 +309,11 @@ $_csstyle_important: false;
         @return selector-parse(selector-nest(html + '#' + $csstyle-root-id, $selector));
     }
 
-    @if $_csstyle_has_root_id and ($_csstyle_has_html_tag != true) {
+    @if $_csstyle_has_root_id and not $_csstyle_has_html_tag {
         @return selector-parse(selector-nest('#' + $csstyle-root-id, $selector));
     }
 
-    @if $_csstyle_has_html_tag and ($_csstyle_has_root_id != true)  {
+    @if $_csstyle_has_html_tag and not $_csstyle_has_root_id {
         @return selector-parse(selector-nest(html, $selector));
     }
 
