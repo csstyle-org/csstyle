@@ -1,6 +1,6 @@
 {
   "name": "csstyle",
-  "version": "2.0.0-dev",
+  "version": "2.0.0",
   "description": "clean, simple styling for styling the web.",
   "scripts": {
     "test": "mocha --recursive './tests/*.test.js'"
